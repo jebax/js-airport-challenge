@@ -11,5 +11,9 @@ describe("Airport", function() {
     it("can store planes", function() {
       expect(airport.landedPlanes()).toEqual([])
     });
+
+    it("has a default capacity of 20 planes", function() {
+      expect(airport.DEFAULT_CAPACITY).toEqual(20)
+    })
   });
 });
