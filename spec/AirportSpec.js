@@ -1,6 +1,7 @@
 describe("Airport", function() {
   var Airport = require('../lib/Airport');
   var airport;
+  var bigAirport;
   var plane;
 
   beforeEach(function() {
@@ -20,8 +21,12 @@ describe("Airport", function() {
       expect(airport.DEFAULT_CAPACITY).toEqual(20);
     });
 
-    it('can get its capacity', function() {
+    it('can get its capacity which is set to the default', function() {
       expect(airport.getCapacity()).toEqual(20);
+    })
+
+    it('can override its default capacity', function () {
+      expect(bigAirport.getCapacity()).toEqual(50);
     });
 
     it('is full if number of landed planes equals capacity', function() {
