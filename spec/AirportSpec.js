@@ -8,11 +8,10 @@ describe("Airport", function() {
     airport = new Airport();
     fullAirport = new Airport();
     bigAirport = new Airport(50);
-    var plane = jasmine.createSpy('plane')
+    plane = jasmine.createSpy('plane')
   });
 
   describe("An airport", function() {
-
     it("can store planes", function() {
       expect(airport.getLandedPlanes()).toEqual([]);
     });
@@ -31,9 +30,16 @@ describe("Airport", function() {
 
     it('is full if number of landed planes equals capacity', function() {
       for(i = 0; i < 20; i++) {
-        fullAirport._landedPlanes.push(plane)
+        fullAirport._landedPlanes.push(plane);
       }
       expect(fullAirport).toBeFull;
     });
   });
+
+  describe('Landing a plane', function() {
+    it("should show plane in airport's landed planes", function() {
+      airport.land(plane)
+      expect(airport.getLandedPlanes()).toContain(plane);
+    })
+  })
 });
