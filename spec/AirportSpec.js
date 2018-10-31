@@ -6,6 +6,7 @@ describe("Airport", function() {
   beforeEach(function() {
     airport = new Airport();
     fullAirport = new Airport();
+    bigAirport = new Airport(50);
     var plane = jasmine.createSpy('plane')
   });
 
@@ -19,11 +20,15 @@ describe("Airport", function() {
       expect(airport.DEFAULT_CAPACITY).toEqual(20);
     });
 
+    it('can get its capacity', function() {
+      expect(airport.getCapacity()).toEqual(20);
+    });
+
     it('is full if number of landed planes equals capacity', function() {
       for(i = 0; i < 20; i++) {
         fullAirport._landedPlanes.push(plane)
       }
       expect(fullAirport).toBeFull;
-    })
+    });
   });
 });
