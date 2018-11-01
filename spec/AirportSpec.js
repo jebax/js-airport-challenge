@@ -42,4 +42,12 @@ describe("Airport", function() {
       expect(airport.getLandedPlanes()).toContain(plane);
     })
   })
+
+  describe('Instructing a plane to take off', function() {
+    it("should remove plane from its list of planes", function() {
+      airport.land(plane)
+      airport.takeOff(plane)
+      expect(airport.getLandedPlanes()).not.toContain(plane)
+    })
+  })
 });
