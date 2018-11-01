@@ -40,8 +40,9 @@ describe("Airport", function() {
     })
 
     it('cannot happen if the airport is full', function() {
+      message = 'Cannot land, airport is full!'
       fullAirport.land(plane)
-      expect(function() { fullAirport.land(plane) }).toThrow('Cannot land, airport is full!')
+      expect(function() { fullAirport.land(plane) }).toThrow(message)
     })
   })
 
@@ -50,6 +51,11 @@ describe("Airport", function() {
       airport.land(plane)
       airport.takeOff(plane)
       expect(airport.getLandedPlanes()).not.toContain(plane)
+    })
+
+    it("should throw an error if the plane isn't in the airport", function () {
+      message = 'Plane not in the airport!'
+      expect(function() { airport.takeOff(plane) }).toThrow(message)
     })
   })
 });
