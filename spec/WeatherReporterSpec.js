@@ -13,4 +13,11 @@ describe("WeatherReporter", function() {
       expect(stormChance).toEqual(0.1)
     });
   });
+
+  describe("Weather reporter", function() {
+    it("can check for stormy weather and return not stormy", function() {
+      spyOn(Math, 'random').and.returnValue(0.5)
+      expect(weatherReporter).not.toBeStormy;
+    })
+  });
 });
