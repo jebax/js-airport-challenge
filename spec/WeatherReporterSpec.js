@@ -15,9 +15,14 @@ describe("WeatherReporter", function() {
   });
 
   describe("Weather reporter", function() {
-    it("can check for stormy weather and return not stormy", function() {
+    it('can check for stormy weather and return not stormy', function() {
       spyOn(Math, 'random').and.returnValue(0.5)
       expect(weatherReporter).not.toBeStormy;
+    })
+
+    it('can return stormy when random value is below storm chance', function() {
+      spyOn(Math, 'random').and.returnValue(0.05)
+      expect(weatherReporter).toBeStormy;
     })
   });
 });
